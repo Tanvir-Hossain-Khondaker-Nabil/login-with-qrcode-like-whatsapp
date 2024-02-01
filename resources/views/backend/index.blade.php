@@ -30,8 +30,8 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">User</p>
-                                        <h4 class="mb-0">100</h4>
+                                        <p class="text-muted fw-medium">QRcode</p>
+                                        <h4 class="mb-0">{{ @App\Models\Qrcode::count('id') }}</h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center">
@@ -51,8 +51,8 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">Customers</p>
-                                        <h4 class="mb-0">100</h4>
+                                        <p class="text-muted fw-medium">Receiver</p>
+                                        <h4 class="mb-0">{{ @App\Models\Receiver::count('id') }}</h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center">
@@ -71,8 +71,8 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">Items</p>
-                                        <h4 class="mb-0">100</h4>
+                                        <p class="text-muted fw-medium">User</p>
+                                        <h4 class="mb-0">{{ @App\Models\User::count('id') }}</h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center ">
@@ -91,8 +91,8 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">Invoice</p>
-                                        <h4 class="mb-0">100</h4>
+                                        <p class="text-muted fw-medium">Admin</p>
+                                        <h4 class="mb-0">{{ @App\Models\Admin::count('id') }}</h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center">

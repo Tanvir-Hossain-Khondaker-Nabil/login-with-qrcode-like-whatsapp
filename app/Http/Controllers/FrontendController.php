@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Qrcode as ModelsQrcode;
+use App\Models\Receiver;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -38,8 +39,15 @@ class FrontendController extends Controller
         return view('frontend.modules.step2',compact('qr','string'));
     }
 
-    public function service(){
-        return view('frontend.modules.step3');
+    public function service($qr_code){
+        $qr = ModelsQrcode::where('qrcode',$qr_code)->pluck('receiver_id');
+        $receiver = Receiver::where('id',$qr)->first();
+
+        session()->flash('success',$receiver->name.' Welcome');  
+        
+        if ($receiver) {
+            return view('frontend.modules.step3',compact('receiver'));
+        }        
     }
 
     public function account(){

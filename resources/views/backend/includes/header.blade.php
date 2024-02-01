@@ -29,7 +29,7 @@
                     <!-- item-->
                     <a class="dropdown-item" href="{{ route('admin.index') }}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
                     <div class="dropdown-divider"></div>
-                    <form  method="post" action="{{ route('logout') }}" >                        
+                    <form  method="delete" action="{{ route('admin.logout') }}" >                        
                     @csrf
                     <button type="submit" class="dropdown-item text-danger">
                         <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> 

@@ -26,16 +26,7 @@
             </div>
             <div class="col-md-3"></div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4 text-center  js-date">
-                <h6>Wed 28th, 02:30pm</h6>
-            </div>
-            <div class="col-md-4 text-end">
-                <button class="return-card"><i class="fa-solid fa-road"></i> Return Card</button>
-            </div>
-        </div>
+        @include('frontend.includes.footer')
     </div>
 </div>
 @endsection

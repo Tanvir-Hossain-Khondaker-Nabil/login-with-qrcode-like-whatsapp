@@ -19,16 +19,7 @@
             </div>
             <div class="col-md-4"></div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4 text-center  js-date">
-                <h6>Wed 28th, 02:30pm</h6>
-            </div>
-            <div class="col-md-4 text-end">
-                <button class="return-card"><i class="fa-solid fa-road"></i> Return Card</button>
-            </div>
-        </div>
+        @include('frontend.includes.footer')
     </div>
 </div>
 <input type="hidden" id="qr_code" value="{{$string }}">
@@ -37,12 +28,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
        let qr_code = document.getElementById("qr_code").value
-       setInterval(function () {
-        axios.get(window.location.origin+'/qr/fetch/'+qr_code).then(res=>{
-
+       setInterval(async function () {
+        await axios.get(window.location.origin+'/qr/fetch/'+qr_code).then(res=>{
+            if (res.data.length > 0) {
               if (res.data[0].status) {
-                window.location.href = `${window.location.origin}/service`
+                window.location.href = window.location.origin+`/public/service/${qr_code}`
               }
+            }
         })
        }, 1000);
     </script>

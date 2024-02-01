@@ -45,7 +45,7 @@
     scanner.render(success, error);
     // Starts scanner
 
-    function success (result) {
+    async function  success (result) {
 
         document.getElementById('result').innerHTML = `
         <h2>Success!</h2>
@@ -61,7 +61,7 @@
 
         let user_id = document.getElementById("user_id").value
         
-        axios.put(window.location.origin+'/qr/update/'+result, {
+        await axios.put(window.location.origin+'/public/qr/update/'+result, {
             userId: user_id,
         })
         .then((response) => {

@@ -41,16 +41,13 @@ class ReceiverController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'name'=>'required|min:3|max:255',
-        //     'phone'=>'required',
-        //     'email'=>'required|email',
-        //     'street_address'=>'required',
-        //     'shopname'=>'required',
-        //     'city'=>'required',
-        //     'postal_code'=>'required',
-        //     'photo'=>'required',
-        // ]);
+        $this->validate($request, [
+            'name'=>'required|min:3|max:255',
+            'phone'=>'required',
+            'email'=>'required|email|unique:users|unique:receivers',
+            'password'=>'required',
+            'amount'=>'required',
+        ]);
         
         $user_data = $request->except(['photo']);
 
@@ -102,6 +99,13 @@ class ReceiverController extends Controller
      */
     public function update(Request $request, Receiver $receiver,User $user)
     {
+        $this->validate($request, [
+            'name'=>'required|min:3|max:255',
+            'phone'=>'required',
+            'email'=>'required|email',
+            'password'=>'required',
+            'amount'=>'required',
+        ]);
 
         $receiver->update([
             'name' => $request->name,
@@ -109,7 +113,7 @@ class ReceiverController extends Controller
             'phone' => $request->phone,
             'amount' => $request->amount,
         ]);
-        $user->create([
+        $user->update([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
