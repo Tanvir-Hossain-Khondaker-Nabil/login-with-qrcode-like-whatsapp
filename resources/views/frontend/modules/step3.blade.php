@@ -78,6 +78,7 @@
   </div>
 </div>
 <img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" />
+<audio autoplay src="{{asset('assets/welcome.mp3')}}"></audio>
 @endsection
 @push('css')
 <style>
