@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-4"></div>
         </div>
-        @include('frontend.includes.footer')
+        @include('frontend.includes.footer-without-logout')
     </div>
 </div>
 <input type="hidden" id="qr_code" value="{{$string }}">

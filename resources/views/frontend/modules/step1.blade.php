@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-3"></div>
         </div>
-        @include('frontend.includes.footer')
+        @include('frontend.includes.footer-without-logout')
     </div>
 </div>
 @endsection

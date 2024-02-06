@@ -77,7 +77,8 @@
     @include('frontend.includes.footer')
   </div>
 </div>
-<img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" />
+<img id="load" src="{{ asset('assets/output-onlinegiftools.gif') }}" style="width: 400px" alt="" />
+{{-- <img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" /> --}}
 <audio autoplay src="{{asset('assets/welcome.mp3')}}"></audio>
 @endsection
 @push('css')
@@ -107,11 +108,11 @@
     display: none;
     }
     #load {
-    top: 190px;
+    top: 140px;
     position: absolute;
     z-index: 1000;
     cursor: wait;
-    left: 560px;
+    left: 470px;
     width: 200px;
 }
 </style>
@@ -171,13 +172,20 @@
     // if (val < 500) {
     //   console.log('minimum 500 tk')
     // }
-    if (val < '500') {
-      $('#error-msg').text('You need withdraw at least 500tk.');
-    } else if (val !== round) {
+ 
+    if (val < '500') {      
+      $('#error-msg').text('You need withdraw at least 500tk.'); 
+      const audio = new Audio(`{{asset('assets/500.mp3')}}`);
+      audio.play(); 
+    } else if (val !== round) {      
       $('#error-msg').text('Please Amount should be Divisor (GCD) of 500 is 500 itself.');
+      const audio = new Audio(`{{asset('assets/500.mp3')}}`);
+      audio.play();
     }
     else if (val === 'null') {
       $('#error-msg').text('You need withdraw at least 500tk.');
+      const audio = new Audio(`{{asset('assets/500.mp3')}}`);
+      audio.play();
     }
     else {
       $('#error-msg').empty();

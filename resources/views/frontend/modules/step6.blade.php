@@ -7,7 +7,7 @@
         <div class="row mb-5">
             <div class="col-12 text-center">
                 <h5 class="choose">Great, almost done!</h5>
-                <h4 class="lang">Remove your card</h4>
+                <h4 class="lang">Receive your cash</h4>
             </div>
         </div>
         <div class="row mb-5">
@@ -18,7 +18,8 @@
         @include('frontend.includes.footer')
     </div>
 </div>
-<img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" />
+{{-- <img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" /> --}}
+<img id="load" src="{{ asset('assets/output-onlinegiftools.gif') }}" style="width: 400px" alt="" />
 <audio autoplay src="{{asset('assets/receive_your_cash.mp3')}}"></audio>
 @endsection
 @push('css')
