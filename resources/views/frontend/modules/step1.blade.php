@@ -19,10 +19,10 @@
                 </a>
             </div>
             <div class="col-md-3 paddingright50">
-                <div class="card bangla">
+                <a href="{{ url('qr') }}" class="card bangla">
                     <i class="fa-solid fa-language"></i>
                     <h4>Bangla</h4>                         
-                </div>
+                </a>
             </div>
             <div class="col-md-3"></div>
         </div>
