@@ -4,7 +4,7 @@
         <h4>RCreation</h4>
     </div>
     <div class="col-md-4 text-center logo">
-        <img src="{{ asset('assets/images/rcreation.png') }}" style="    width: 200px;
+        <img src="{{ asset('assets/images/rcreation-logo-logo-logo.png') }}" style="width: 200px;
                     margin: auto;
                     padding: 0;
                     height: 150px;
