@@ -64,7 +64,7 @@
           <fieldset>
             <label for="" style="font-size: 21px; font-weight:500; padding-right:50px">Amount</label>
             <div class="d-flex gap-1 mt-2">
-              <input id="amount" oninput="round(this)" type="text" name="more" style="width: 140px;height:40px"
+              <input id="amount" onkeypress="audio(this)" oninput="round(this)" type="text" name="more" style="width: 140px;height:40px"
                 class="form-control" placeholder="Enter Amount">
               <button class="btn btn-sm btn-light"><i class="fa-regular fa-floppy-disk fa-2xl"
                   style="color: #00448e"></i></button>
@@ -175,15 +175,34 @@
  
     if (val < '500') {      
       $('#error-msg').text('You need withdraw at least 500tk.'); 
+    } else if (val !== round) {      
+      $('#error-msg').text('Please Amount should be Divisor (GCD) of 500 is 500 itself.');
+    }
+    else if (val === 'null') {
+      $('#error-msg').text('You need withdraw at least 500tk.');
+    }
+    else {
+      $('#error-msg').empty();
+    }
+
+  }
+  function audio(e) {
+    let val = parseFloat($(e).val());
+
+    let round = Math.round(val / 500) * 500
+
+    // if (val < 500) {
+    //   console.log('minimum 500 tk')
+    // }
+ 
+    if (val < '500') {      
       const audio = new Audio(`{{asset('assets/500.mp3')}}`);
       audio.play(); 
     } else if (val !== round) {      
-      $('#error-msg').text('Please Amount should be Divisor (GCD) of 500 is 500 itself.');
       const audio = new Audio(`{{asset('assets/500.mp3')}}`);
       audio.play();
     }
     else if (val === 'null') {
-      $('#error-msg').text('You need withdraw at least 500tk.');
       const audio = new Audio(`{{asset('assets/500.mp3')}}`);
       audio.play();
     }

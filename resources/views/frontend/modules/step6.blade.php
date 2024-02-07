@@ -28,11 +28,11 @@
     display: none;
     }
     #load {
-    top: 190px;
+    top: 140px;
     position: absolute;
     z-index: 1000;
     cursor: wait;
-    left: 560px;
+    left: 470px;
     width: 200px;
 }
     </style>

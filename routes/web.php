@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AmountController;
@@ -19,6 +20,20 @@ use App\Http\Controllers\ReceiverController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('clear', function () {
+    Artisan::call('config:cache');
+    Artisan::call('cache:clear');
+    return '<h1>CLEARED</h1>';
+});
+Route::get('reboot', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    return '<h1>Reebooted</h1>';
+});
+
+
 Route::get('/',[FrontendController::class,'index'])->name('home');
 Route::get('/qr',[FrontendController::class,'qr'])->name('qr');
 Route::get('/service/{qr_code}',[FrontendController::class,'service'])->name('service');

@@ -18,8 +18,8 @@
                 <span key="t-ecommerce">Receiver</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="{{ route('receiver.create') }}" key="t-products">Create</a></li>
-                <li><a href="{{ route('receiver.index') }}" key="t-product-detail">Table</a></li>
+                <li><a href="{{ route('receiver.create') }}" key="t-products">Add Receiver</a></li>
+                <li><a href="{{ route('receiver.index') }}" key="t-product-detail">All Receiver</a></li>
             </ul>
         </li>
         {{-- @endif --}}
