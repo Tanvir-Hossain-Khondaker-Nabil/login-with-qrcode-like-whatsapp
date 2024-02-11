@@ -61,7 +61,7 @@
 
         let user_id = document.getElementById("user_id").value
         
-        await axios.put(window.location.origin+'/public/qr/update/'+result, {
+        await axios.put(window.location.origin+'/qr/update/'+result, {
             userId: user_id,
         })
         .then((response) => {

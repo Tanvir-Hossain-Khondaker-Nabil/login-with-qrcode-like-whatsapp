@@ -39,15 +39,8 @@ class FrontendController extends Controller
         return view('frontend.modules.step2',compact('qr','string'));
     }
 
-    public function service($qr_code){
-        $qr = ModelsQrcode::where('qrcode',$qr_code)->pluck('receiver_id');
-        $receiver = Receiver::where('id',$qr)->first();
-
-        session()->flash('success',$receiver->name.' Welcome');  
-        
-        if ($receiver) {
-            return view('frontend.modules.step3',compact('receiver'));
-        }        
+    public function service(){
+            return view('frontend.modules.step3'); 
     }
 
     public function account(){
@@ -62,6 +55,17 @@ class FrontendController extends Controller
         return view('frontend.modules.step6');
     }
 
+    public function waiting(){
+        return view('frontend.modules.waiting');
+    }
+
+    public function confirmed(){     
+        return view('frontend.modules.confirmed');
+    }
+    
+    public function waitingsecond(){
+        return view('frontend.modules.waiting-second');
+    }
 
     public function backend(){
         return view('frontend.backend.modules.index');

@@ -36,10 +36,13 @@ Route::get('reboot', function () {
 
 Route::get('/',[FrontendController::class,'index'])->name('home');
 Route::get('/qr',[FrontendController::class,'qr'])->name('qr');
-Route::get('/service/{qr_code}',[FrontendController::class,'service'])->name('service');
+Route::get('/service',[FrontendController::class,'service'])->name('service');
 Route::get('/account',[FrontendController::class,'account'])->name('account');
 Route::get('/receipt',[FrontendController::class,'receipt'])->name('receipt');
 Route::get('/complete',[FrontendController::class,'complete'])->name('complete');
+Route::get('/waiting',[FrontendController::class,'waiting'])->name('waiting');
+Route::get('/confirmed',[FrontendController::class,'confirmed'])->name('confirmed');
+Route::get('/waiting...',[FrontendController::class,'waitingsecond'])->name('waiting-second');
 Route::put('/qr/update/{id}',[FrontendController::class,'getQrCode']);
 Route::get('/qr/fetch/{id}',[FrontendController::class,'findQr']);
 
