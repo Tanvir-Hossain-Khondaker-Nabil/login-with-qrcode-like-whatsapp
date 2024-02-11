@@ -4,16 +4,16 @@
 <div class="container-fluid p-5 bg-custom-gradient">
     <div class="container">
         @include('frontend.includes.head')
-        <div class="row title mb-5">
+        <div class="row title mb-3">
             <div class="col-12 text-center">
                 <h5 class="choose"><i>Please Wait...</i></h5>
                 {{-- <h4 class="lang">Please Wait!</h4> --}}
             </div>
         </div>
-        <div class="row divider">
+        <div class="row ">
             <div class="col-md-3"></div>
             <div class="col-md-6 service-logo">
-                <img src="{{ asset('assets/rcreation-service.jpg') }}" alt="">
+                <img style="width: 500px" src="{{ asset('assets/rcreation-service.jpg') }}" alt="">
             </div>
             <div class="col-md-3"></div>
         </div>
