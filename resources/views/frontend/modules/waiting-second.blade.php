@@ -23,7 +23,7 @@
 @push('js')
     <script>
       setTimeout(function(){
-        window.location.href = window.location.origin+`/public/service`;
+        window.location.href = window.location.origin+`/public/qr`;
       }, 2000);  
     </script>
 @endpush
