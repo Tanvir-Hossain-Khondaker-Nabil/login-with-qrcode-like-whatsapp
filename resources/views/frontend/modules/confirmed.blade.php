@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-3"></div>
         </div>
-        @include('frontend.includes.footer-confirmed')
+        @include('frontend.includes.footer-without-logout')
     </div>
 </div>
 @endsection

@@ -69,8 +69,8 @@
                                 <input id="amount" onkeypress="audio(this)" oninput="round(this)" type="text"
                                     name="more" style="width: 140px;height:40px" class="form-control"
                                     placeholder="Enter Amount">
-                                <button class="btn btn-sm btn-light"><i class="fa-regular fa-floppy-disk fa-2xl"
-                                        style="color: #00448e"></i></button>
+                                <button onclick="audioplay()" class="btn btn-sm btn-light"><i
+                                        class="fa-regular fa-floppy-disk fa-2xl" style="color: #00448e"></i></button>
                             </div>
                         </fieldset>
                         <code id="error-msg" style="font-size: 15px;"></code>
@@ -78,12 +78,13 @@
                 </div>
                 <div class="col-4"></div>
             </div>
-            @include('frontend.includes.footer')
+            @include('frontend.includes.footer-without-logout')
         </div>
     </div>
     {{-- <img id="load" src="{{ asset('assets/output-onlinegiftools.gif') }}" style="width: 400px" alt="" /> --}}
     {{-- <img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" /> --}}
     <audio autoplay src="{{ asset('assets/welcome.mp3') }}"></audio>
+    <audio id="audio" src="{{ asset('assets/500.mp3') }}"></audio>
 @endsection
 @push('css')
     <style>
@@ -111,8 +112,8 @@
         }
 
         /* div#content {
-                display: none;
-            } */
+                    display: none;
+                } */
 
         #load {
             top: 140px;
@@ -176,16 +177,39 @@
 
             let round = Math.round(val / 500) * 500
 
-            // if (val < 500) {
-            //   console.log('minimum 500 tk')
-            // }
+            var audio = document.getElementById("audio");
+            var count = 0;
 
-            if (val < '500') {
+
+            if (val < '500') { 
                 $('#error-msg').text('You need withdraw at least 500tk.');
-            } else if (val !== round) {
+                if (count == 0) {
+                    count = 1;
+                    audio.play();
+                } else {
+                    count = 0;
+                    audio.pause();
+                }
+            } 
+            else if (val !== round) {
                 $('#error-msg').text('Please Amount should be Divisor (GCD) of 500 is 500 itself.');
-            } else if (val === 'null') {
+                if (count == 0) {
+                    count = 1;
+                    audio.play();
+                } else {
+                    count = 0;
+                    audio.pause();
+                }
+            } 
+            else if (val === 'null') {
                 $('#error-msg').text('You need withdraw at least 500tk.');
+                if (count == 0) {
+                    count = 1;
+                    audio.play();
+                } else {
+                    count = 0;
+                    audio.pause();
+                }
             } else {
                 $('#error-msg').empty();
             }
@@ -202,6 +226,23 @@
             // }
 
             if (val < '500') {
+                
+            } else if (val !== round) {
+                
+            } else if (val === 'null') {
+                
+            } else {
+                $('#error-msg').empty();
+            }
+        }
+
+
+        function audioplay() {
+            let val = parseFloat($("#amount").val())
+
+            let round = Math.round(val / 500) * 500
+
+            if (val < '500') {
                 const audio = new Audio(`{{ asset('assets/500.mp3') }}`);
                 audio.play();
             } else if (val !== round) {
@@ -213,7 +254,6 @@
             } else {
                 $('#error-msg').empty();
             }
-
         }
 
         function getcash() {
