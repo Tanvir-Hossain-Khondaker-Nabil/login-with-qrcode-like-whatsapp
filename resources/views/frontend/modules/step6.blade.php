@@ -15,7 +15,7 @@
                     <img src="{{ asset('assets/frontend/output-atm.gif') }}" style="width: 200px;" alt="">
                 </div>
             </div>
-            @include('frontend.includes.footer')
+            @include('frontend.includes.footer-without-logout')
         </div>
     </div>
     {{-- <img id="load" className=' w-16 py-20' src="https://i.gifer.com/ZZ5H.gif" alt="" /> --}}
